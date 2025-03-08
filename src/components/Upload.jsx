@@ -12,16 +12,33 @@ export default function Upload() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // Get first selected file
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+    const maxSize = 5 * 1024 * 1024;
+    let check = false;
     if (file) {
+        if (!allowedTypes.includes(file.type)) { 
+            alert("Invalid file type. Please upload a JPEG or PNG image.");
+            return; 
+        }
+    
+        if (file.size > maxSize) {
+            alert("File is too large! Maximum size is 5MB.");
+            return; 
+        }
+    
+        
         setImage(file); 
+        check = true;
     } 
-
-    // Create an image preview using FileReader
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreview(reader.result);
-    };
-    reader.readAsDataURL(file);
+    if(check) {
+        // Create an image preview using FileReader
+        const reader = new FileReader();
+        reader.onloadend = () => {
+        setPreview(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    
   };
 
   const removeImage = () => {
@@ -43,15 +60,32 @@ export default function Upload() {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
 
-    if(file) {
-        setImage(file);
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+    const maxSize = 5 * 1024 * 1024;
+    let check = false;
+    if (file) {
+        if (!allowedTypes.includes(file.type)) { 
+            alert("Invalid file type. Please upload a JPEG or PNG image.");
+            return; 
+        }
+    
+        if (file.size > maxSize) {
+            alert("File is too large! Maximum size is 5MB.");
+            return; 
+        }
+    
+        
+        setImage(file); 
+        check = true;
+    } 
+    if(check) {
+        // Create an image preview using FileReader
         const reader = new FileReader();
         reader.onloadend = () => {
-            setPreview(reader.result);
+        setPreview(reader.result);
         };
         reader.readAsDataURL(file);
     }
-    setDragging(false);
   }
 
   return (
