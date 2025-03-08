@@ -4,7 +4,7 @@ import Upload from './components/Upload';
 function App() {
   return (
     <div>
-      <ImageUpload />
+      <Upload />
     </div>
   )
 }
