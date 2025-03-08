@@ -4,6 +4,7 @@ export default function Upload() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const fileInput = useRef(null);
+  const [isDragging, setDragging] = useState(false);
 
   const openFile = () => {
     fileInput.current.click(); // Opens the hidden file input
@@ -28,6 +29,31 @@ export default function Upload() {
     setImage(null);
     fileInput.current.value = null;
   }
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  }
+
+  const handleDragLeave = () => {
+    setDragging(false);
+  }
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+
+    if(file) {
+        setImage(file);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setPreview(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    setDragging(false);
+  }
+
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
       <h1>Upload Your Picture Here!</h1>
@@ -55,6 +81,18 @@ export default function Upload() {
       >
         Choose File
       </button>
+
+      <div onDragOver = {handleDragOver} onDragLeave = {handleDragLeave} onDrop = {handleDrop}  style={{
+          border: "2px dashed gray",
+          padding: "20px",
+          textAlign: "center",
+          cursor: "pointer",
+          backgroundColor: isDragging ? "#e0f2ff" : "white", // Highlight when dragging
+          transition: "background-color 0.2s",
+          marginBottom: "10px",
+        }}>
+      <p>{isDragging ? "Drop the file here" : "Drag * Drop an image here"}</p>
+      </div>
 
       {/* Show Preview */}
       {preview && (
