@@ -1,0 +1,317 @@
+/* Upload.css - Styling for the Upload component */
+
+/* Base container */
+.upload-container {
+    font-family: 'Poppins', -apple-system, sans-serif;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header section */
+  .upload-header {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .upload-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .upload-header h1::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+  
+  .upload-header p {
+    font-size: 1.2rem;
+    color: #777;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  /* Content section */
+  .upload-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Upload section */
+  .upload-section {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .hidden-input {
+    display: none;
+  }
+  
+  /* Drop zone */
+  .drop-zone {
+    border: 3px dashed #e0e0e0;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 154, 158, 0.05);
+  }
+  
+  .drop-zone:hover {
+    border-color: #ff9a9e;
+    background-color: rgba(255, 154, 158, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .drop-zone.active {
+    border-color: #ff9a9e;
+    background-color: rgba(255, 154, 158, 0.15);
+    transform: scale(0.98);
+  }
+  
+  .upload-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(255, 154, 158, 0.3);
+  }
+  
+  .upload-icon svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+  }
+  
+  .drop-zone h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .drop-zone p {
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  .browse-btn {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 154, 158, 0.3);
+    margin-bottom: 15px;
+  }
+  
+  .browse-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 154, 158, 0.4);
+  }
+  
+  .browse-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+  }
+  
+  .file-hint {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  
+  /* Preview section */
+  .preview-section {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .preview-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+  }
+  
+  .image-preview-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+  }
+  
+  .image-preview {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-preview:hover {
+    transform: scale(1.02);
+  }
+  
+  .remove-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .remove-btn:hover {
+    background: white;
+    transform: rotate(90deg);
+  }
+  
+  .remove-btn svg {
+    width: 20px;
+    height: 20px;
+    color: #ff6b6b;
+  }
+  
+  .preview-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .action-btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .action-btn.primary {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: white;
+    border: none;
+    box-shadow: 0 10px 20px rgba(255, 154, 158, 0.3);
+  }
+  
+  .action-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 154, 158, 0.4);
+  }
+  
+  .action-btn.secondary {
+    background: white;
+    color: #ff9a9e;
+    border: 2px solid #ff9a9e;
+  }
+  
+  .action-btn.secondary:hover {
+    background: rgba(255, 154, 158, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    margin: 20px 0;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .divider span {
+    padding: 0 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  /* Camera component container */
+  .camera-component {
+    margin-top: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .upload-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .upload-section {
+      padding: 20px;
+    }
+    
+    .drop-zone {
+      padding: 30px 15px;
+    }
+    
+    .preview-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .upload-header h1 {
+      font-size: 2rem;
+    }
+    
+    .browse-btn, .action-btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+    
+    .drop-zone h3 {
+      font-size: 1.2rem;
+    }
+  }
