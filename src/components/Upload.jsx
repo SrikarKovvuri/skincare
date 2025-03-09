@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
+import Photo from "./Photo";
 
 export default function Upload() {
   const [image, setImage] = useState(null);
@@ -127,7 +128,7 @@ export default function Upload() {
         }}>
       <p>{isDragging ? "Drop the file here" : "Drag * Drop an image here"}</p>
       </div>
-
+        <Photo />
       {/* Show Preview */}
       {preview && (
         <div>
